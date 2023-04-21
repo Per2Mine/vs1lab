@@ -14,7 +14,7 @@ html {
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 7;
 
   /* This approach prevents issues with 3rd party content-box components */
   box-sizing: inherit;
