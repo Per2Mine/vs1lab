@@ -118,7 +118,7 @@ footer{
 /* ... your code here ... */
 .flex-container {
   display: flex;
-  background-color: #9e9e9e;
+  background-color: #cdcdcd;
   justify-content: space-between;
 
 
@@ -162,7 +162,7 @@ nav.header__navigation{
 }
 
 #discovery__taglist{
-  background-color: #666;
+  background-color: #cdcdcd;
 }
 
 #fieldset-add{
@@ -175,6 +175,15 @@ nav.header__navigation{
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+.box{
+  background-color: #cdcdcd;
+  border: #666;
+  padding: 1%;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
