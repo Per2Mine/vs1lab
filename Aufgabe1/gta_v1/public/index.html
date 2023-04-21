@@ -36,44 +36,53 @@
 
 
     <main class="main">
-        <section class="main__tagging tagging">
-            
- <!-- ############### VS1Lab 1a Form 1 Start -->
-           
-         
-        <div class="grid-container col-2">
-            <br>  
-            <h2>Tagging</h2>
-            <br>
-            <fieldset class="fieldset-add">
         
-                <br>
-                <legend><b>Add a new GeoTag</b></legend>
-                <br>
+        <div class="grid-container col-1">
 
-                    <form id="tag-form" action="/tagging" method="post">
-                    
-                    <label for="latitude">Latitude:</label>
-                    <input type="number" id="latitude" name="Add_input">
-                    <br>
-
-                    <label for="longtiude">Longtitude:</label>
-                    <input type="number" id="longitude" name="Add_input" >
-                    <br>
-
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="Add_input" placeholder="e.g. Central Berlin">
-                    <br>
-
-                    <label for="hashtag">Hashtag:</label>
-                    <input type="text" id="hashtag" name="Add_input" placeholder="e.g.#ber">
-                    <br>
+            <section class="main__tagging tagging">
+                
+    <!-- ############### VS1Lab 1a Form 1 Start -->
             
+                <br>  
+                <h2>Tagging</h2>
+                <br>
+                <fieldset class="fieldset-add">
+            
+                    <br>
+                    <legend><b>Add a new GeoTag</b></legend>
+                    <br>
 
-                    <button type="button" name="button">Add Tag</button>
-                    </form>
-            </fieldset>
-        
+                        <form id="tag-form" action="/tagging" method="post">
+                        
+                        <label for="latitude">Latitude:</label>
+                        <br>
+                        <input type="number" id="latitude" name="Add_input">
+                        <br>
+                        <br>
+
+                        <label for="longtiude">Longtitude:</label>
+                        <br>
+                        <input type="number" id="longitude" name="Add_input" >
+                        <br>
+                        <br>
+
+                        <label for="name">Name:</label>
+                        <br>
+                        <input type="text" id="name" name="Add_input" placeholder="e.g. Central Berlin">
+                        <br>
+                        <br>
+
+                        <label for="hashtag">Hashtag:</label>
+                        <br>
+                        <input type="text" id="hashtag" name="Add_input" placeholder="e.g.#ber">
+                        <br>
+                        <br>
+                
+
+                        <button type="button" name="button">Add Tag</button>
+                        </form>
+                </fieldset>
+            
         </div>
             
         
@@ -86,31 +95,34 @@
         </section>
     
 
+    <div class="grid-container col-2">
         <section class="main__discovery discovery">
             
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
-        <div class="grid-container col-2">
-            <br>
-            <h2 class="discovery__title">Discovery</h2>
-            <br>
-            <fieldset>
-                    <legend><b>Search</b></legend>
+    
+                <br>
+                <h2 class="discovery__title">Discovery</h2>
+                <br>
+                <fieldset>
+                        <legend><b>Search</b></legend>
 
-                
-                
-                    <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                        <label for="search">Search term or keywords:</label>
-                        <input type="text" class="Add_input" id="search" placeholder="e.g. Berlin">
-                    <br>
+                    
+                    
+                        <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                            <label for="search">Search term or keywords:</label>
+                            <input type="text" class="Add_input" id="search" placeholder="e.g. Berlin">
+                        <br>
 
-                        <button type="button" class="search_button">Search</button>
-                        <!-- ... your code here ... -->
-            </fieldset>
-        </div>
-                    </form>
-                    <!-- ############### VS1Lab 1a Form 2 End -->
+                            <button type="button" class="search_button">Search</button>
+                            <!-- ... your code here ... -->
+                        </form>
+                </fieldset>
+                        
+                        
+            <!-- ############### VS1Lab 1a Form 2 End -->
 
+            <!--div class="grid-container col-4"-->
                     <div class="discovery__wrapper">
                         <div class="discovery__taglist">
                             <ul class="discovery__results" id="discoveryResults">
@@ -118,14 +130,21 @@
                                 <li>IWI (49.01379, 8.390071) #edu</li>
                             </ul>
                         </div>
+                    </div>
+    
 
+            <div class="grid-container col-12">
                         <div class="discovery__map">
                             <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                            <br>
                             <span>Result map</span>
                         </div>
-                    </div>
-                </section>
-        
+                        
+           </div>
+           
+
+        </section>
+    </div>
 
     </main>
 
