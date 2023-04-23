@@ -295,17 +295,10 @@ button:hover {
   }
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-
 .header__title {
   margin-left: auto;
   margin-right: auto;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -313,4 +306,21 @@ button:hover {
   text-align: right;
 }
 
+.header {
+  display: flex; /* Use flex for positioning the elements inside the header */
+  justify-content: space-between; /* Distribute the available space evenly between the elements */
+  align-items: center; /* Align the elements vertically in the center */
+  padding: 1rem; /* Add some padding to the header for a better appearance */
+}
 
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Set the width of the flex container to 100% */
+}
+
+.middle-head {
+  flex-grow: 1; /* Allow the middle-head to grow and take up the available space */
+  text-align: center; /* Center the header title text */
+}
