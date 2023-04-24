@@ -149,8 +149,7 @@ Das Ergebnis könnte wie folgt aussehen:
 - Verwenden sie verschiedene Arten von Selektoren (`element`, `id`, `class`).
 
 ##### Implementierung des Grid Layouts
-
-- Bei Grids mit unterschiedlich breiten Spalten wird gerne eine Aufteilung der Screen-Breite in 12 gleiche Teile vorgenommen. Spalten werden dann nach der Zahl ihrer Teile ausgewählt, so dass am Ende wieder 12 Teile resultieren (z.B. 3 Spalten mit 2, 4 und 6 Teilen).
+Bei Grid mit unterscheidliche breiten Spalten wird gerne eine Aufteilung der Screen-Breite in 12 gleiche Teile vorgenommen. Spalten werden dann nach der Zahl ihrer Teile ausgewählt, so dass am Ende wieder 12 Teile resultieren (z.B. 3 Spalten mit 2, 4 und 6 Teilen).
 - Als Vorlage zur Implementierung so eines Layouts finden Sie im Template schon Regelmengen für verschiedene Klassen `.row` und `.col-x`. Mithilfe dieser Klassen sollen sie HTML-Elemente als Zeilen oder Spalten deklarieren, so dass sich das vorgegebene Grid Layout ergibt.
 - Achten sie auf eine genaue Ausrichtung der Spalten. Die Summe der Teile gewählter Spalten sollte in jeder Reihe 12 ergeben.
 
