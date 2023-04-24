@@ -179,6 +179,15 @@ header{
   margin-bottom: 0.5rem;
 }
 
+.main__tagging input[type="submit"] {
+  padding: 0.5rem;
+  width: 11.5rem;
+  cursor: pointer;
+}
+
+.main__tagging input {
+  padding: 0.5rem;
+}
 
 
 
