@@ -21,11 +21,11 @@
         </div>
 
         <div class="middle-head">
-            <h1 class="header__title">GeoTagApp</h1>
+            <h1 id="headertitel" class="header__title">GeoTagApp</h1>
         </div>
         
         <div>
-        <nav class="header__navigation">
+        <nav id="navigation" class="header__navigation">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
        </div>
@@ -104,44 +104,42 @@
                 <br>
                 <h2 class="discovery__title">Discovery</h2>
                 <br>
+
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                
                 <fieldset>
-                        <legend><b>Search</b></legend>
-
-                    
-                    
-                        <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                            <label for="search">Search term or keywords:</label>
-                            <input type="text" class="Add_input" id="search" placeholder="e.g. Berlin">
-                        <br>
-
-                            <button type="button" class="search_button">Search</button>
-                            <!-- ... your code here ... -->
-                        </form>
+                    <legend><b>Search</b></legend>
+                    <br>
+                    <label for="Search term or keywords">Search term or keywords:</label>
+                    </br>
+                    <input type="text" placeholder="e.g. Berlin" id="search_box">
+                    <br>
+                    <input type="hidden" id="latitude_box" placeholder="e.g. 49.01379" readonly>
+                    <input type="hidden" id="longitude_box" placeholder="e.g. 8.390071" readonly>
+                    <br>
+                    <input type="submit" value="Search">
                 </fieldset>
-                        
+                
+            </form>        
                         
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <!--div class="grid-container col-4"-->
-                    <div class="discovery__wrapper">
+            <div class="discovery__wrapper">
                         <div class="discovery__taglist">
                             <ul class="discovery__results" id="discoveryResults">
-                                <a href="#" class="box">Castle (49.01379, 8.404435) <br> #sight</a> <br>
-                                <li href="#" class="box">IWI (49.01379, 8.390071) <br> #edu</li>
+                                <li href="#">Castle (49.01379, 8.404435) <br> #sight</li> 
+                                <li href="#">IWI (49.01379, 8.390071) <br> #edu</li>
                             </ul>
                         </div>
-                    </div>
-    
-
-            <div class="grid-container row">
+                   
+            
                         <div class="discovery__map">
                             <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                             <br>
                             <span>Result map</span>
                         </div>
-                        
            </div>
-           
 
         </section>
     </div>

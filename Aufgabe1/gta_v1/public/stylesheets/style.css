@@ -14,7 +14,7 @@ html {
 
 * {
   margin: 0;
-  /*padding: 0;
+  padding: 0;
 
   /* This approach prevents issues with 3rd party content-box components */
   box-sizing: inherit;
@@ -51,9 +51,6 @@ header{
   background-color: #cdcdcd;
 }
 
-footer{
-  background-color: #cdcdcd;
-}
 
 /* Grid styles (no changes required) */
 
@@ -129,16 +126,29 @@ footer{
   
 }
 
+#imagemap{
+  position: relative;
+  width: 30px;
+  height: auto;
+}
 
-h1.header__title{
+#headertitel {
+  position: relative;
+  font-size: 70;
+}
+
+#navigation{
+  position: relative;
+}
+
+
+.header__title{
   text-align: center;
 }
 
-nav.header__navigation{
+.header__navigation{
   right: 10%;
 }
-
-
 
 
 
@@ -152,50 +162,110 @@ nav.header__navigation{
   border-radius: 3%;
 }
 
-#fieldset-add{
-  padding: 20%;
-  
+/*.main {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 1rem;
+}*/
+
+.main__tagging {
+  margin-left: 1rem;
 }
 
-#logo{
-  align-items: left;
+.main__tagging * {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-#discovery__taglist{
-  background-color: #cdcdcd;
-}
 
-#fieldset-add{
-  padding: 7;
-}
 
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
 
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
-.box{
-  background-color: #cdcdcd;
-  border: #666;
-  padding: 1%;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
 
+.discovery__search{
+  margin-left: 1rem;
+}
+
+.discovery__search *{
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.discovery__search input[type="submit"] {
+  padding: 0.5rem;
+  width: 11.5 rem;
+  cursor: pointer;
+}
+
+.discovery__wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.discovery__results {
+  padding: 0;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  list-style-type: none;
+}
+
+.discovery__results li{
+  background-color: #efefef;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.discovery__map{
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+footer{
+  background-color: #cdcdcd;
+  padding: 2rem;
+}
 
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+@media screen and (max-width: 850px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    width: 100%;
+    flex-direction: column;
+  }
+  .discovery__wrapper{
+  flex-direction: column;
+}
+}
