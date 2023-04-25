@@ -280,6 +280,7 @@ button:hover {
     flex-direction: column;
   }
 }
+<<<<<<< Updated upstream
 
 @media (min-width: 768px) {
   .main {
@@ -324,3 +325,68 @@ button:hover {
   flex-grow: 1; /* Allow the middle-head to grow and take up the available space */
   text-align: center; /* Center the header title text */
 }
+=======
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    width: calc(100% - 2%);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .col-1 {
+    width: calc(8.33% - 2%);
+  }
+  .col-2 {
+    width: calc(16.66% - 2%);
+  }
+  .col-3 {
+    width: calc(25% - 2%);
+  }
+  .col-4 {
+    width: calc(33.33% - 2%);
+  }
+  .col-5 {
+    width: calc(41.66% - 2%);
+  }
+  .col-6 {
+    width: calc(50% - 2%);
+  }
+  .col-7 {
+    width: calc(58.33% - 2%);
+  }
+  .col-8 {
+    width: calc(66.66% - 2%);
+  }
+  .col-9 {
+    width: calc(75% - 2%);
+  }
+  .col-10 {
+    width: calc(83.33% - 2%);
+  }
+  .col-11 {
+    width: calc(91.66% - 2%);
+  }
+  .col-12 {
+    width: calc(100% - 2%);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  /* Keine Änderungen erforderlich, da dies der Standardstil ist */
+}
+>>>>>>> Stashed changes
