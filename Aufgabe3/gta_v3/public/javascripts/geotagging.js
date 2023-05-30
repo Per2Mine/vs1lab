@@ -49,8 +49,8 @@ class LocationHelper {
         geoLocationApi.getCurrentPosition((location) => {
             // Create and initialize LocationHelper object.
             let helper = new LocationHelper();
-            helper.latitude = location.coords.latitude.toFixed(5);
-            helper.longitude = location.coords.longitude.toFixed(5);
+            helper.#latitude = location.coords.latitude.toFixed(5);
+            helper.#longitude = location.coords.longitude.toFixed(5);
             // Pass the locationHelper object to the callback.
             callback(helper);
         }, (error) => {
@@ -103,13 +103,43 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
-findLocation();
-function findLocation(){
-    let longitude = document.getElementById("longitude").value;
-    let latitude = document.getElementById("latitude").value;
- }
 
-// Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
-});
+function updateLocation() {
+    LocationHelper.findLocation((location) => {
+        // Zugriff auf die Eingabefelder des Tagging-Formulars
+        let taggingLatitudeInput = document.getElementById('latitude');
+        let taggingLongitudeInput = document.getElementById('longitude');
+
+        // Überprüfung, ob die Eingabefelder vorhanden sind
+        if (taggingLatitudeInput && taggingLongitudeInput) {
+            // Aktualisieren der Eingabefeldwerte mit den Koordinaten
+            taggingLatitudeInput.value = location.latitude;
+            taggingLongitudeInput.value = location.longitude;
+        }
+
+        // Zugriff auf die versteckten Eingabefelder des Discovery-Formulars
+        let discoveryLatitudeInput = document.getElementById('latitude-hidden');
+        let discoveryLongitudeInput = document.getElementById('longitude-hidden');
+
+        // Überprüfung, ob die versteckten Eingabefelder vorhanden sind
+        if (discoveryLatitudeInput && discoveryLongitudeInput) {
+            // Aktualisieren der Eingabefeldwerte mit den Koordinaten
+            discoveryLatitudeInput.value = location.latitude;
+            discoveryLongitudeInput.value = location.longitude;
+        }
+        const mapManager = new MapManager('7kGi1FF3n2jNRPac0JDJVAk84steZjnn');
+
+        // Koordinaten abrufen und Karten-URL generieren
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+        const mapUrl = mapManager.getMapUrl(latitude, longitude);
+
+        // Image-Element suchen und das src-Attribut aktualisieren
+        const mapImage = document.getElementById('mapView');
+        if (mapImage) {
+            mapImage.src = mapUrl;
+        }
+    });
+}
+// Rufen Sie die 'updateLocation'-Funktion nach dem Laden des Dokuments automatisch auf
+window.addEventListener("load", updateLocation);

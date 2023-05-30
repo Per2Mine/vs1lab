@@ -1,0 +1,382 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+
+/* ... your code here ... */
+header {
+  background-color: #10a37f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.header__image {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.header__navigation a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.header__navigation a:hover {
+  color: #cce6ff;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header__title h1 {
+  margin: 0;
+}
+
+/* ### TODO ### Styles for Main Component */
+
+/* ... your code here ... */
+
+/* For Webkit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F0F0F0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cdcdcd;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9b9b9b;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #F0F0F0;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+legend {
+  padding-left: 1%;
+}
+
+input {
+  font-size: 1rem;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--link-color);
+  outline: none;
+}
+
+.main__tagging,
+.main__discovery {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.main__tagging {
+  margin-bottom: 20%;
+}
+
+input,
+button,
+label {
+  display: block;
+  margin-left: 10%;
+}
+
+/* ### TODO ### Styles for Tagging component */
+
+/* ... your code here ... */
+.main__tagging {
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.main__tagging label {
+  margin-top: 7%;
+  margin-bottom: 1%;
+  font-size: 1.1rem;
+  color: var(--gray-color);
+  margin-bottom: 5%;
+}
+
+.main__tagging input {
+  padding: 3%;
+  font-size: large;
+  padding: 1%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 75%;
+  height: 50px;
+}
+
+.main__tagging button {
+  margin-top: auto;
+  margin-top: 10%;
+  font-size: 150%;
+  padding: 1%;
+  margin-bottom: 6%;
+  border-radius: 5px;
+  width: 75%;
+  height: 50px;
+  background-color: #396f96;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.main__tagging button:hover {
+  background-color: #255b81;
+}
+
+
+/* ### TODO ### Styles for Discovery component */
+
+/* ... your code here ... */
+.main__discovery {
+  margin-top: 4%;
+  margin-right: 3%;
+}
+
+.main__discovery label {
+  margin-bottom: 0.5%;
+  font-size: 1.1rem;
+  color: var(--gray-color);
+  margin-bottom: 5px;
+}
+
+.main__discovery input {
+  padding: 3%;
+  font-size: large;
+  padding: 1%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 23%;
+}
+
+.main__discovery button {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 150%;
+  width: 23%;
+  background-color: #396f96;;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 1.15% 2%;
+  border-radius: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.main__discovery button:hover {
+  background-color: #255b81;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  background-color: rgb(227, 226, 226);
+  margin-bottom: 5%;
+  color: #00B7FF;
+}
+
+.discovery__taglist li {
+  font-size: large;
+  padding: 5%;
+  border-radius: 5px;
+}
+
+
+/* ### TODO ### Styles for Footer Component */
+
+/* ... your code here ... */
+
+footer {
+  display: flex;
+  background-color: #10a37f;
+  position: relative;
+  height: 70px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer-text {
+  margin-left: 2%;
+  font-weight: bold;
+}
+
+/* ### TODO ### Media Queries */
+
+/* ... your code here ... */
+
+/* Add this code to your CSS file or inside a <style> tag in the HTML head */
+@media screen and (max-width: 767px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-3 {
+    align-items: center;
+  }
+
+  .main__tagging {
+    margin-left: 5%;
+    margin-top: 10%;
+  }
+}
