@@ -13,6 +13,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 /**
  * The module "geotag" exports a class GeoTagStore. 
  * It represents geotags.
@@ -30,6 +31,8 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
+const speicher = new GeoTagStore();
+const { tagList } = require('../models/geotag-examples');
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -44,6 +47,7 @@ const GeoTagStore = require('../models/geotag-store');
 router.get('/', (req, res) => {
   res.render('index', { taglist: [] })
 });
+
 
 /**
  * Route '/tagging' for HTTP 'POST' requests.
@@ -60,7 +64,16 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 
-// TODO: ... your code here ...
+router.post('/tagging', (req, res) => {
+  const name = req.body.name;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
+  const hashtag = req.body.hashtag;
+
+  speicher.addGeoTag(new GeoTag(longitude, latitude, name, hashtag));
+  res.render('index', { taglist: speicher})
+  
+});
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
@@ -78,6 +91,8 @@ router.get('/', (req, res) => {
  * by radius and keyword.
  */
 
-// TODO: ... your code here ...
+router.post('/discovery', (req, res) => {
+  res.render('index', { taglist: [] })
+});
 
 module.exports = router;

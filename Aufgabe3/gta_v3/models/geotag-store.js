@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
 
+const { tagList } = require("./geotag-examples");
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -24,9 +26,46 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-
+    constructor(){
+        this.addGeoTag(tagList).forEach(element => {
+            this.addGeoTag(element);
+        });
+    }
+    #geotags = [];
     // TODO: ... your code here ...
 
+    addGeoTag(geoTag){
+        this.#geotags.push(geoTag);
+    }
+
+    removeGeoTag(name){
+        this.#geotags.forEach(element => {
+            if(element == name){
+                delete this.#geotags[element];
+            }
+        });
+    }
+
+    getNearbyGeoTags(longitude, latitude, radius){
+        let nearByGeoTags = [];
+        this.#geotags.forEach(element => {
+            if(Math.sqrt(Math.pow(element.latitude-latitude, 2) + Math.pow(element.longitude-longitude, 2)) <= radius){
+                nearByGeoTags.push(element);
+            }
+        });
+        return nearByGeoTags;
+    }
+
+    searchNearbyGeoTags(longitude, latitude, name, hashtag, radius){
+        let keyGeoTags = [];
+        this.getNearbyGeoTags(longitude, latitude, radius).forEach(element => {
+            if(element.hashtag == hashtag || element.name == name){
+                keyGeoTags.push(element);
+            }
+        });
+        return keyGeoTags;
+    }
 }
+
 
 module.exports = InMemoryGeoTagStore

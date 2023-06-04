@@ -32,9 +32,9 @@
                             <fieldset>
                                 <legend><h3>Add a new GeoTag</h3></legend>
                                 <label for="latitude">Latitude:</label>
-                                <input type="number" name="latitude" id="latitude" value="49.01455" readonly>
+                                <input type="number" name="latitude" id="latitude" placeholder="49.01455" value="" readonly>
                                 <label for="longitude">Longitude:</label>
-                                <input type="number" name="longitude" id="longitude" value="8.39400" readonly>
+                                <input type="number" name="longitude" id="longitude" placeholder="8.39400" value="" readonly>
                                 <label for="name">Name:</label>
                                 <input type="text" name="name" id="name" placeholder="e.g. Central Berlin" maxlength="10" required>
                                 <label for="hashtag">Hashtag</label>
@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-6"> <!-- Zweite Spalte für den Mapview -->
                                 <div class="discovery__map">
-                                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=JSON.stringify(taglist)%>" />
                                     <span>Result map</span>
                                 </div>
                             </div>
@@ -91,6 +91,8 @@
         <span class="footer-text">(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
     <script src="./javascripts/geotagging.js"></script>
+    <script src="./javascripts/location-helper.js"></script>
+    <script src="./javascripts/map-manager.js"></script>
 </body>
 
 </html>
