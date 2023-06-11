@@ -21,7 +21,7 @@ const router = express.Router();
  * TODO: implement the module in the file "../models/geotag.js"
  */
 // eslint-disable-next-line no-unused-vars
-const GeoTag = require('../models/geotag');
+const GeoTag = require('../models/geotag.js');
 
 /**
  * The module "geotag-store" exports a class GeoTagStore. 
@@ -30,10 +30,10 @@ const GeoTag = require('../models/geotag');
  * TODO: implement the module in the file "../models/geotag-store.js"
  */
 // eslint-disable-next-line no-unused-vars
-const GeoTagStore = require('../models/geotag-store');
-const speicher = new GeoTagStore();
-const { tagList } = require('../models/geotag-examples');
-
+const GeoTagStore = require('../models/geotag-store.js');
+const { tagList } = require('../models/geotag-examples.js');
+const GeoTagExamples = require('../models/geotag-examples.js');
+const speicher = new GeoTagStore(GeoTagExamples.tagList);
 /**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
@@ -45,7 +45,7 @@ const { tagList } = require('../models/geotag-examples');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: speicher.getNearbyGeoTags(8.39400, 45.01455, 1000) })
 });
 
 
@@ -70,8 +70,10 @@ router.post('/tagging', (req, res) => {
   const longitude = req.body.longitude;
   const hashtag = req.body.hashtag;
 
-  speicher.addGeoTag(new GeoTag(longitude, latitude, name, hashtag));
-  res.render('index', { taglist: speicher})
+  const geoTag = new GeoTag(longitude, latitude, name, hashtag);
+
+  speicher.addGeoTag(geoTag);
+  res.render('index', { taglist: speicher.getNearbyGeoTags(geoTag.longitude, geoTag.latitude, 1000)})
   
 });
 
@@ -92,7 +94,8 @@ router.post('/tagging', (req, res) => {
  */
 
 router.post('/discovery', (req, res) => {
-  res.render('index', { taglist: [] })
+  const name = req.body.name;
+  res.render('index', { taglist: speicher.searchNearbyGeoTags(longitude, latitude, name, hashtag, 1000) })
 });
 
 module.exports = router;

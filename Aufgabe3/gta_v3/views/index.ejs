@@ -70,7 +70,8 @@
                             <div class="col-6"> <!-- Erste Spalte für die Taglist -->
                                 <div class="discovery__taglist">
                                     <ul class="discovery__results" id="discoveryResults">
-                                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+                                        <% if (taglist !== undefined) 
+                                        taglist.forEach(function(gtag) { %>
                                             <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
                                         <% }); %>
                                     </ul>

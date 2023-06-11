@@ -1,5 +1,6 @@
 // File origin: VS1LAB A3
 
+const GeoTag = require("./geotag");
 const { tagList } = require("./geotag-examples");
 
 /**
@@ -26,15 +27,17 @@ const { tagList } = require("./geotag-examples");
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-    constructor(){
-        this.addGeoTag(tagList).forEach(element => {
-            this.addGeoTag(element);
+    #geotags = [];
+    constructor(tagList){
+        tagList.forEach(element => {
+            this.addGeoTag(new GeoTag(element[1], element[2], element[0], element[3]));
         });
     }
-    #geotags = [];
     // TODO: ... your code here ...
 
     addGeoTag(geoTag){
+        //console.log("Adding Geo Tag: " + geoTag.name);
+        //console.log(geoTag.longitude + " / " + geoTag.latitude + " (Long / Lat)");
         this.#geotags.push(geoTag);
     }
 
@@ -47,13 +50,15 @@ class InMemoryGeoTagStore{
     }
 
     getNearbyGeoTags(longitude, latitude, radius){
-        let nearByGeoTags = [];
+        let nearbyGeoTags = [];
         this.#geotags.forEach(element => {
             if(Math.sqrt(Math.pow(element.latitude-latitude, 2) + Math.pow(element.longitude-longitude, 2)) <= radius){
-                nearByGeoTags.push(element);
+                nearbyGeoTags.push(element);
+                console.log("!");
             }
         });
-        return nearByGeoTags;
+        console.log(nearbyGeoTags);
+        return nearbyGeoTags;
     }
 
     searchNearbyGeoTags(longitude, latitude, name, hashtag, radius){
