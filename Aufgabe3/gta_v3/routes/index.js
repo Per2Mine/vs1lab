@@ -45,7 +45,7 @@ const speicher = new GeoTagStore(GeoTagExamples.tagList);
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: speicher.getNearbyGeoTags(8.39400, 45.01455, 1000) })
+  res.render('index', { taglist: speicher.getNearbyGeoTags(8.39400, 45.01455, 100) })
 });
 
 
