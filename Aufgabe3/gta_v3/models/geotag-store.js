@@ -30,7 +30,7 @@ class InMemoryGeoTagStore{
     #geotags = [];
     constructor(tagList){
         tagList.forEach(element => {
-            this.addGeoTag(new GeoTag(element[1], element[2], element[0], element[3]));
+            this.addGeoTag(new GeoTag(element[2], element[1], element[0], element[3]));
         });
     }
     // TODO: ... your code here ...
@@ -54,21 +54,25 @@ class InMemoryGeoTagStore{
         this.#geotags.forEach(element => {
             if(Math.sqrt(Math.pow(element.latitude-latitude, 2) + Math.pow(element.longitude-longitude, 2)) <= radius){
                 nearbyGeoTags.push(element);
-                console.log("!");
             }
         });
         console.log(nearbyGeoTags);
         return nearbyGeoTags;
     }
 
-    searchNearbyGeoTags(longitude, latitude, name, hashtag, radius){
-        let keyGeoTags = [];
-        this.getNearbyGeoTags(longitude, latitude, radius).forEach(element => {
-            if(element.hashtag == hashtag || element.name == name){
-                keyGeoTags.push(element);
+    searchNearbyGeoTags(latitude, longitude, radius, keyword){
+        let nearbyTags = [];
+        console.log(this.#geotags);
+        console.log(latitude);
+        for (let i = 0; i < this.#geotags.length; i++) {
+            if(radius >= Math.sqrt(Math.pow(this.#geotags[i].latitude - latitude, 2) + Math.pow(this.#geotags[i].longitude - longitude, 2))){
+                if(this.#geotags[i].name.includes(keyword) || this.#geotags[i].hashtag.includes(keyword)){
+                    nearbyTags.push(this.#geotags[i]);
+                }
             }
-        });
-        return keyGeoTags;
+        }
+        console.log(nearbyTags);
+        return nearbyTags;
     }
 }
 

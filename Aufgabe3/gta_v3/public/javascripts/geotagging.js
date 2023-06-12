@@ -29,13 +29,13 @@ function updateLocation() {
             // Koordinaten abrufen und Karten-URL generieren
             const latitude = location.latitude;
             const longitude = location.longitude;
-            const mapUrl = mapManager.getMapUrl(latitude, longitude, JSON.parse(document.getElementById("mapView").getAttribute("data-tags")));
+            const tags = JSON.parse(document.getElementById("mapView").dataset.tags);
+            console.log(longitude);
+            const mapUrl = mapManager.getMapUrl(latitude, longitude, tags);
 
             // Image-Element suchen und das src-Attribut aktualisieren
             const mapImage = document.getElementById('mapView');
-            if (mapImage) {
-                mapImage.src = mapUrl;
-            }
+            mapImage.src = mapUrl;
         });
     }
 }

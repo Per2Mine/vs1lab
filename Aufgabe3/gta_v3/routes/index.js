@@ -93,9 +93,15 @@ router.post('/tagging', (req, res) => {
  * by radius and keyword.
  */
 
+// TODO: ... your code here ...
 router.post('/discovery', (req, res) => {
-  const name = req.body.name;
-  res.render('index', { taglist: speicher.searchNearbyGeoTags(longitude, latitude, name, hashtag, 1000) })
+  const latitude = req.body.latitudehidden;
+  const longitude = req.body.longitudehidden;
+  const searchTerm = req.body.search;
+  res.render('index', {
+    taglist: speicher.searchNearbyGeoTags(latitude, longitude, 100, searchTerm),
+    latitude: latitude,
+    longitude: longitude
+  });
 });
-
 module.exports = router;

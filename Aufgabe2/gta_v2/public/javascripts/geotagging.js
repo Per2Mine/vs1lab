@@ -123,8 +123,8 @@ function updateLocation() {
         }
 
         // Zugriff auf die versteckten Eingabefelder des Discovery-Formulars
-        let discoveryLatitudeInput = document.getElementById('latitude-hidden');
-        let discoveryLongitudeInput = document.getElementById('longitude-hidden');
+        let discoveryLatitudeInput = document.getElementById('latitudehidden');
+        let discoveryLongitudeInput = document.getElementById('longitudehidden');
 
         // Überprüfung, ob die versteckten Eingabefelder vorhanden sind
         if (discoveryLatitudeInput && discoveryLongitudeInput) {
