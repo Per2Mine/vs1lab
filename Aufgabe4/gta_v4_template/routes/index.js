@@ -26,7 +26,9 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
-
+const { tagList } = require('../models/geotag-examples.js');
+const GeoTagExamples = require('../models/geotag-examples.js');
+const speicher = new GeoTagStore(GeoTagExamples.tagList);
 // App routes (A3)
 
 /**
@@ -39,7 +41,7 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: speicher.getNearbyGeoTags(8.39400, 45.01455, 100) })
 });
 
 // API routes (A4)
@@ -57,6 +59,18 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.post('/tagging', (req, res) => {
+  const name = req.body.name;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
+  const hashtag = req.body.hashtag;
+
+  const geoTag = new GeoTag(longitude, latitude, name, hashtag);
+
+  speicher.addGeoTag(geoTag);
+  res.render('index', { taglist: speicher.getNearbyGeoTags(geoTag.longitude, geoTag.latitude, 1000)})
+  
+});
 
 
 /**
@@ -71,6 +85,16 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.post('/discovery', (req, res) => {
+  const latitude = req.body.latitudehidden;
+  const longitude = req.body.longitudehidden;
+  const searchTerm = req.body.search;
+  res.render('index', {
+    taglist: speicher.searchNearbyGeoTags(latitude, longitude, 100, searchTerm),
+    latitude: latitude,
+    longitude: longitude
+  });
+});
 
 
 /**
